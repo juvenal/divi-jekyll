@@ -38,6 +38,9 @@ Thumbs.db
 
 # Exclude divi template files #
 ###############################
+*.po
+*.txt
+*.css
 /assets/vendor/divi/**/*.php
 /assets/vendor/divi/**/*.xml
 /assets/vendor/divi/*/lang/
