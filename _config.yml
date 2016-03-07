@@ -75,3 +75,14 @@ kramdown:
 ######################
 # Site configuration #
 ######################
+divi_version:  "2.6.4.4" #String, your divi version
+lang: "en" # String, your lang code.
+title: "Divi" # String, your site title.
+logo:  "http://www.universaal.info/wp-content/uploads/logo.png" # String, your logo url.
+
+boxed_layout:  false #Bool
+top_menu: "top_menu.html" #String: filename.extension
+display_top_menu : true #Bool
+main_sidebar: "main_menu.html" #String: filename.extension
+main_menu_style: "standard" # String: "standard", "centred", "side"
+display_main_menu : true #Bool
