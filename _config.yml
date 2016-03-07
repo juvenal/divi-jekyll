@@ -79,6 +79,7 @@ divi_version:  "2.6.4.4" #String, your divi version
 lang: "en" # String, your lang code.
 title: "Another site make with jekyll" # String, your site title.
 name: "Divi" # String, your site name.
+logo: "" # String, logo URL.
 
 boxed_layout:  false #Bool
 top_menu: "top_menu.html" #String: filename.extension
@@ -86,3 +87,9 @@ display_top_menu : true #Bool
 main_sidebar: "main_menu.html" #String: filename.extension
 main_menu_style: "standard" # String: "standard", "centred", "side"
 display_main_menu : true #Bool
+
+email: 'contact@ourwebsite.com' # String, your email.
+phone: '888-443-2342' # String, your phone.
+facebook_url : '#' # String, facebook URL.
+twitter_url : '#' # String, twitter URL.
+google_url : '#' # String, google+ URL.
