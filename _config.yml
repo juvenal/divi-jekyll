@@ -11,11 +11,11 @@ data_dir:     ./_data
 includes_dir: ./_includes
 collections:  null
 
-safe:         false
+safe:         true
 include:      [".htaccess"]
 exclude:      ["_modules"]
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
+keep_files:   [".git", ".svn", ".js"]
+encoding:     "UTF-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 show_drafts: null
@@ -77,8 +77,8 @@ kramdown:
 ######################
 divi_version:  "2.6.4.4" #String, your divi version
 lang: "en" # String, your lang code.
-title: "Divi" # String, your site title.
-logo:  "http://www.universaal.info/wp-content/uploads/logo.png" # String, your logo url.
+title: "Another site make with jekyll" # String, your site title.
+name: "Divi" # String, your site name.
 
 boxed_layout:  false #Bool
 top_menu: "top_menu.html" #String: filename.extension
