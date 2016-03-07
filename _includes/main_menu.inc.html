@@ -76,7 +76,7 @@
       {% unless node.url == "/" %}
       {% capture _childmenu %}
          {% comment %} <!-- Returns _childmenu  {{_nexturl}} --> {% endcomment %}
-         {% include main_menu.inc.html url=_nexturl ischildren=true mobile=include.mobile %}
+         {% include main_menu.inc.html url=_nexturl ischildren=true %}
       {% endcapture %}{% endunless %}
 
       {% comment %} <!-- Return the classes --> {% endcomment %}
@@ -108,24 +108,13 @@
 
 {% assign _srip_items = _menu_items | strip %}
 {% unless _srip_items == "" %}
-   {% if include.mobile != true %}
-      {% if include.ischildren %}
-         <ul class="sub-menu">
-            {{ _srip_items }}
-         </ul>
-      {% else %}
-         <ul id="top-menu" class="nav">
-            {{ _srip_items }}
-         </ul>
-      {% endif %}
-   {% else %}
-      </ul>
-      {% if include.ischildren %}
-         <ul class="sub-menu">
-            {{ _srip_items }}
-         </ul>
-      {% else %}
+   {% if include.ischildren %}
+      <ul class="sub-menu">
          {{ _srip_items }}
-      {% endif %}
+      </ul>
+   {% else %}
+      <ul id="top-menu" class="nav">
+         {{ _srip_items }}
+      </ul>
    {% endif %}
 {% endunless %}
