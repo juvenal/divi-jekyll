@@ -10,30 +10,7 @@
 	</div>
 	<!-- #et-info -->
 	<div id="et-secondary-menu">
-			<ul class="et-social-icons">
-				{% if site.facebook_url %}
-					<li class="et-social-icon et-social-facebook">
-						<a href="{{site.facebook_url}}" class="icon">
-							<span>Facebook</span>
-						</a>
-					</li>
-				{% endif %}
-				{% if site.twitter_url %}
-					<li class="et-social-icon et-social-twitter">
-						<a href="{{site.twitter_url}}" class="icon">
-							<span>Twitter</span>
-						</a>
-					</li>
-				{% endif %}
-				
-				{% if site.google_url %}
-					<li class="et-social-icon et-social-google-plus">
-						<a href="{{site.google_url}}" class="icon">
-							<span>Google</span>
-						</a>
-					</li>
-				{% endif %}
-			</ul>
+			{% include social_icons.inc.html %}
 			{% include top_menu.inc.html url='/' %}
 	</div>
 	<!-- #et-secondary-menu -->
