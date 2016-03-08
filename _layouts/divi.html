@@ -1,0 +1,184 @@
+---
+layout: bare
+---
+{% comment %} <!--  _boxed setter --> {% endcomment %}
+{% if page.boxed_layout == true %}
+	{% assign _boxed = page.boxed_layout %}
+	{% elsif site.boxed_layout == true %}
+	{% assign _boxed = site.boxed_layout %}
+{% else %}
+	{% assign _boxed = false %}
+{% endif %}
+{% comment %} <!--  _top_menu_display setter --> {% endcomment %}
+{% if page.display_top_menu == true %}
+	{% assign _top_menu_display = page.display_top_menu %}
+	{% elsif site.display_top_menu == true %}
+	{% assign _top_menu_display = site.display_top_menu %}
+{% else %}
+	{% assign _top_menu_display = false %}
+{% endif %}
+{% comment %} <!--  _top_menu_file setter --> {% endcomment %}
+{% if page.top_menu == true %}
+	{% assign _top_menu_file = page.top_menu %}
+	{% elsif site.top_menu == true %}
+	{% assign _top_menu_file = site.top_menu %}
+{% else %}
+	{% assign _top_menu_file = "top_menu.html" %}
+{% endif %}
+{% comment %} <!-- _main_menu_display setter --> {% endcomment %}
+{% if page.display_main_menu == true %}
+	{% assign _main_menu_display = page.display_main_menu %}
+	{% elsif site.display_main_menu == true %}
+	{% assign _main_menu_display = site.display_main_menu %}
+{% else %}
+	{% assign _main_menu_display = true %}
+{% endif %}
+{% comment %} <!--  _main_menu_file setter --> {% endcomment %}
+{% if page.main_sidebar == true %}
+	{% assign _main_menu_file = page.main_sidebar %}
+	{% elsif site.main_sidebar == true %}
+	{% assign _main_menu_file = site.main_sidebar %}
+{% else %}
+	{% assign _main_menu_file = "main_menu.html" %}
+{% endif %}
+{% comment %} <!--  _menu_style setter --> {% endcomment %}
+{% if page.main_menu_style %}
+	{% assign _menu_style = page.main_menu_style %}
+	{% elsif site.main_menu_style %}
+	{% assign _menu_style = site.main_menu_style %}
+{% else %}
+	{% assign _menu_style = "standard" %}
+{% endif %}
+
+{% comment %} <!-- _footer_display setter --> {% endcomment %}
+{% if page.display_footer == true %}
+	{% assign _footer_display = page.display_footer %}
+	{% elsif site.display_footer == true %}
+	{% assign _footer_display = site.display_footer %}
+{% else %}
+	{% assign _footer_display = true %}
+{% endif %}
+{% comment %} <!--  _footer_file setter --> {% endcomment %}
+{% if page.footer == true %}
+	{% assign _footer_file = page.footer %}
+	{% elsif site.footer == true %}
+	{% assign _footer_file = site.footer %}
+{% else %}
+	{% assign _footer_file = "footer.html" %}
+{% endif %}
+
+{% comment %} <!--  _page_title setter --> {% endcomment %}
+{% if page.title %}
+	{% assign _page_title = page.title %}
+	{% elsif site.title %}
+	{% assign _page_title = site.title %}
+{% else %}
+	{% assign _page_title = "Divi" %}
+{% endif %}
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{% if _page_title %}{{ _page_title }}{% endif %}</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<link rel="icon" type="image/x-icon" href="./favicon.ico" />
+	
+	<!-- Google fonts -->
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800%7CLato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic&subset=latin,latin-ext" /><link rel='stylesheet' id='font-awesome-css'  href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css' type='text/css' media='all' />
+	<!-- Divi css -->
+	<link rel="stylesheet" id="divi-style-css" href="{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/style.css" type="text/css" media="all">
+	<link rel="stylesheet" id="et-shortcodes-css-css" href="{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/epanel/shortcodes/css/shortcodes.css" type="text/css" media="all">
+	<link rel="stylesheet" id="et-shortcodes-responsive-css-css" href="{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/epanel/shortcodes/css/shortcodes_responsive.css" type="text/css" media="all">
+	<link rel="stylesheet" id="magnific-popup-css" href="{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/styles/magnific_popup.css" type="text/css" media="all">
+	<!--Your custom css-->
+	<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/custom.css" type="text/css" />
+	<!--jquery-->
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+	<script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.2.1/jquery-migrate.min.js'></script>
+	
+	<!--analytics-->
+	{% include analytics.html %}
+</head>
+<body class="
+	{% if page.body_class %}{{ page.body_class }}{% endif %}
+	page-template-default
+	custom-background
+	et_color_scheme_red
+	et_pb_button_helper_class
+	{% if _menu_style == 'side' %}  et_vertical_nav et_vertical_fixed  {% else %}  et_fixed_nav  {% endif %}
+	{% if _boxed == true %}  et_boxed_layout  {% endif %}
+	et_show_nav
+	et_cover_background
+	et_secondary_nav_enabled
+	et_secondary_nav_two_panels
+	et_pb_side_nav_page
+	et_pb_gutter windows
+	et_pb_gutters3
+	et_primary_nav_dropdown_animation_fade
+	et_secondary_nav_dropdown_animation_fade
+	et_pb_footer_columns4
+	{% if _menu_style == 'center' %}  et_header_style_centered  {% else %}  et_header_style_left  {% endif %}
+	et_pb_pagebuilder_layout
+	et_right_sidebar
+	">
+	<!-- page container -->
+	<div id="page-container">
+		<!-- Begin header -->
+		<div id="top-header">
+			{% if _top_menu_display and _top_menu_file %} {% include {{_top_menu_file}} %} {% endif %}
+		</div>
+		<header id="main-header">
+			{% if _main_menu_display and _main_menu_file %} {% include {{_main_menu_file}} %} {% endif %}
+		</header>
+		<!-- END Header -->
+		
+		<!-- BEGIN main area -->
+		<div id="et-main-area">
+			{{ content }}
+			{% if _footer_display and _footer_file %} {% include {{_footer_file}} %} {% endif %}
+		</div>
+		<!-- END main area
+
+	</div>
+	<!-- END page container -->
+	<!-- Divi js -->
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/frontend-builder-global-functions.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/jquery.mobile.custom.min.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/js/custom.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/js/smoothscroll.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/jquery.fitvids.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/waypoints.min.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/jquery.magnific-popup.js'></script>
+	<script type='text/javascript'>
+	var et_pb_custom = {
+	"et_frontend_nonce":"83436fe0ce",
+	"subscription_failed":"Please, check the fields below to make sure you entered the correct information.",
+	"fill_message":"Please, fill in the following fields:",
+	"contact_error_message":"Please, fix the following errors:",
+	"invalid":"Invalid email",
+	"captcha":"Captcha",
+	"prev":"Prev",
+	"previous":"Previous",
+	"next":"Next",
+	"wrong_captcha":"You entered the wrong number in captcha.",
+	"is_builder_plugin_used":"",
+	"is_divi_theme_used":"1",
+	"widget_search_selector":".widget_search"
+	};
+	</script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/frontend-builder-scripts.js'></script>
+	<script type='text/javascript' src='{{ site.baseurl }}/assets/vendor/divi/{{site.divi_version}}/includes/builder/scripts/jquery.easypiechart.js'></script>
+	<!--Your custom JS-->
+	<script src="{{ site.baseurl }}/assets/js/custom.js"></script>
+	<!-- BEGIN Debug Divi Settings -->
+	<script type="text/javascript">
+		console.log("Divi version: {{site.divi_version}}");
+		console.log("Boxed layout: {{_boxed}}");
+		console.log("Top menu file: {{_top_menu_file}}");
+		console.log("Top menu display: {{_top_menu_display}}");
+		console.log("Main menu file: {{_main_menu_file}}");
+		console.log("Main menu style: {{_menu_style}}");
+		console.log("Main menu display: {{_main_menu_display}}");
+	</script>
+	<!-- END Debug Divi Settings  -->
+</body>
+</html>

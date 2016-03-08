@@ -1,0 +1,188 @@
+---
+title: Blog
+layout: page
+display_on_main_menu : true
+---
+
+      <div class="et_pb_section et_pb_section_parallax et_pb_fullwidth_section  et_pb_section_0 et_pb_with_background et_section_regular">
+         <div class="et_parallax_bg" style="height: 268.5px; transform: translate(0px, 52.5px); background-image: url(&quot;http://jahdaicintron.com/wp-content/uploads/2015/03/geometric-red-bg.jpg&quot;);"></div>
+         <section class="et_pb_fullwidth_header et_pb_module et_pb_bg_layout_dark et_pb_text_align_left  et_pb_fullwidth_header_0">
+            <div class="et_pb_fullwidth_header_container left">
+               <div class="header-content-container center">
+                  <div class="header-content">
+                     <h1>Masonry Blog Layout</h1>
+                     <span class="et_pb_fullwidth_header_subhead">The latest and greatest web design news.</span>
+                  </div>
+               </div>
+            </div>
+            <div class="et_pb_fullwidth_header_overlay"></div>
+            <div class="et_pb_fullwidth_header_scroll"></div>
+         </section>
+      </div>
+      <!-- .et_pb_section -->
+      <div class="et_pb_section  et_pb_section_1 et_pb_with_background et_section_regular">
+         <div class=" et_pb_row et_pb_row_0">
+            <div class="et_pb_column et_pb_column_4_4  et_pb_column_0">
+               <div class="et_pb_blog_grid_wrapper">
+                  <div class="et_pb_blog_grid clearfix et_pb_module et_pb_bg_layout_light  et_pb_blog_0" data-columns="3">
+
+                  {% assign _posts = paginator.posts %}
+                  {% for post in _posts %}
+
+                     {% capture _loop %}{{ _loop | plus:1 }}{% endcapture %}
+
+                     {% capture article %}
+                     <article class="et_pb_post post type-post status-publish format-standard has-post-thumbnail hentry category-photography">
+
+                        {% if post.thumnail_carousel %}
+                           <!-- carousel : items {{ post.carousel.size }} -->
+                              <div class="et_pb_slider et_pb_slider_fullwidth_off et_pb_gallery_post_type et_slide_transition_to_next et_pb_bg_layout_light">
+                                 <div class="et_pb_slides">
+                                    {% for image in post.thumnail_carousel %}
+                                       <div class="et_pb_slide" style="background: url({{image}});"></div>'
+                                    {% endfor %}
+                                 </div>
+                              </div>
+                        {% elsif post.thumnail_image %}
+                           <!-- Image -->
+                           <div class="et_pb_image_container">
+                              <a href="{{site.baseurl}}{{post.url}}" class="entry-featured-image-url">
+                                 <img src="{{post.thumnail_image}}" width="400" height="250">
+                              </a>
+                           </div>
+                        {% elsif post.thumnail_quote %}
+                           <div class="et_quote_content et_pb_text_color_light" style="background-color: #9b61dd;">
+                              <blockquote>
+                                 <p>“{{post.thumnail_quote[0]}}.”
+                                 <br>
+                                 <br>
+                                 {% if post.thumnail_quote[1] %} <em>-{{post.thumnail_quote[1]}}</em>{% endif %}
+                                 </p>
+                              </blockquote>
+                              <a href="{{site.baseurl}}{{post.url}}" class="et_quote_main_link">Read more</a>
+                           </div>
+                        {% elsif post.thumnail_video %}
+      							<div class="et_main_video_container">
+      								<div class="fluid-width-video-wrapper" style="padding-top: 58.3333%;">
+      									{% if post.thumnail_video contains "youtu" %}
+      										{% assign _youtube_id = post.thumnail_video | split: "/" | last %}
+      										<iframe src="https://www.youtube.com/embed/{{_youtube_id}}?feature=oembed&amp;amp;wmode=opaque" frameborder="0" allowfullscreen=""></iframe>
+      									{% endif %}
+      									{% if post.thumnail_video contains "vimeo" %}
+      										{% assign _vimeo_id = post.thumnail_video | split: "/" | last %}
+      										<iframe src="https://player.vimeo.com/video/{{_vimeo_id}}?wmode=opaque" frameborder="0" title="Bat.tutty.ry" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" ></iframe>
+      									{% endif %}
+      								</div>
+      							</div>
+                        {% elsif post.thumnail_link %}
+                           <div class="et_link_content et_pb_text_color_light">
+                              <h2><a href="{{post.thumnail_link}}" target="_blank">{{ post.title }}</a></h2>
+                              <a href="{{post.thumnail_link}}" class="et_link_main_url" target="_blank">{{post.thumnail_link}}</a>
+                           </div>
+                        {% endif %}
+                        
+                        {% unless post.thumnail_link %}
+                        <h2 class="entry-title"><a href="{{site.baseurl}}{{post.url}}">{{ post.title }}</a></h2>
+                        <p class="post-meta">
+                        {% endunless %}
+
+                        {% if post.author %}
+                           by <span class="author vcard"><a href="#author-link" title="Posts by {{ post.author }}">{{ post.author }}</a></span>
+                        {% endif %}
+
+                        {% if post.author and post.date %}|{% endif %}
+
+                        {% if post.date %}
+                           <span class="published">{{ post.date | date: '%B %d, %Y' }}</span>
+                        {% endif %}
+
+                        {% if post.date and post.category %}|{% endif %}
+
+                        {% if post.category %}
+                           {% for post_cat in post.category %}
+                              <a href="#category-link" rel="category tag">{{ post_cat }}</a>
+                              {% if forloop.index != forloop.length  %},{% endif %}
+                           {% endfor %}
+                        {% endif %}
+
+                        </p>
+                        <p>{{ post.excerpt }}</p>
+                     </article>
+                     {% endcapture %}
+
+                     {% if _loop == '3' %}
+                        {% capture _col_3 %}
+                           {{ _col_3 }}
+                           <!-- Col 03 : loop {{ forloop.index }} -->
+                           {{article}}
+                        {% endcapture %}
+
+                     {% elsif _loop == '2' %}
+
+                        {% capture _col_2 %}
+                           {{ _col_2 }}
+                           <!-- Col 02 : loop {{ forloop.index }} -->
+                           {{article}}
+                        {% endcapture %}
+
+                     {% else %}
+
+                        {% capture _col_1 %}
+                           {{ _col_1 }}
+                           <!-- Col 01 : loop {{ forloop.index }} -->
+                           {{article}}
+                        {% endcapture %}
+
+                     {% endif %}
+
+                     {% if _loop == '3' %}
+                        {% capture _loop %}0{% endcapture %}
+                     {% endif %}
+
+                  {% endfor %}
+
+                  <div class="column size-1of3">
+                     {{ _col_1 }}
+                  </div>
+                  <div class="column size-1of3"> 
+                     {{ _col_2 }}
+                  </div>
+                  <div class="column size-1of3">
+                     {{ _col_3 }}
+                  </div>
+
+                  </div>
+                  <!-- .et_pb_posts -->
+                  <div class="wp-pagenavi">
+                     <span class="pages" style="float: left;">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                  
+                  {% if paginator.previous_page %}
+                     {% if paginator.previous_page == 1 %}
+                     <a href="{{site.baseurl}}{{ site.paginate_path | replace: 'page-:num/', '' }}">«</a>
+                     {% else %}
+                     <a class="previouspostslink" rel="prev" href="{{site.baseurl}}{{ site.paginate_path | replace: ':num', paginator.previous_page }}">«</a>
+                     {% endif %}
+                  {% endif %}
+                  
+                  {% for page in (1..paginator.total_pages) %}
+                     {% if page == paginator.page %}
+                        <a >{{ page }}</a>
+                     {% elsif page == 1 %}
+                        <a href="{{site.baseurl}}{{ site.paginate_path | replace: 'page-:num/', '' }}">{{ page }}</a>
+                     {% else %}
+                        <a href="{{site.baseurl}}{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a>
+                     {% endif %}
+                  {% endfor %}
+
+                     {% if paginator.next_page %}
+                     <a class="nextpostslink" rel="next" href="{{site.baseurl}}{{ site.paginate_path | replace: ':num', paginator.next_page }}">»</a>
+                  {% endif %}
+
+                  </div>
+               </div>
+            </div>
+            <!-- .et_pb_column -->
+         </div>
+         <!-- .et_pb_row -->
+      </div>
+      <!-- .et_pb_section -->

@@ -2,71 +2,16 @@
 ########################
 # jekyll configuration #
 ########################
-
-source:       .
-destination:  ./_site
-plugins_dir:  ./_plugins
-layouts_dir:  ./_layouts
-data_dir:     ./_data
-includes_dir: ./_includes
-collections:  null
-
-safe:         false
-include:      [".htaccess"]
-exclude:      ["_modules"]
-keep_files:   [".git", ".svn"]
-encoding:     "utf-8"
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
-
-show_drafts: null
-limit_posts: 0
-future:      false
-unpublished: false
-
-whitelist: []
-gems: []
-
-markdown:    kramdown
-highlighter: rouge
-lsi:         false
-excerpt_separator: "\n\n"
-incremental: false
+gems: [jekyll-paginate]
 
 detach:  false
 port:    4000
 host:    127.0.0.1
 baseurl: "/divi"
 
-# Outputting
-permalink:     date
-paginate_path: /page:num
-timezone:      null
-
-quiet:    false
-defaults: []
-
-# Markdown Processors
-rdiscount:
-  extensions: []
-
-redcarpet:
-  extensions: []
-
-kramdown:
-  auto_ids:       true
-  footnote_nr:    1
-  entity_output:  as_char
-  toc_levels:     1..6
-  smart_quotes:   lsquo,rsquo,ldquo,rdquo
-  enable_coderay: false
-
-  coderay:
-    coderay_wrap:              div
-    coderay_line_numbers:      inline
-    coderay_line_number_start: 1
-    coderay_tab_width:         4
-    coderay_bold_every:        10
-    coderay_css:               style
+paginate: 15
+paginate_path: "/blog/page-:num/"
+paginate_masonry_path: "/blog/masonry/page-:num/"
 
 ############
 # Defaults #
@@ -75,3 +20,23 @@ kramdown:
 ######################
 # Site configuration #
 ######################
+divi_version:  "2.6.4.4" #String, your divi version
+lang: "en" # String, your lang code.
+title: "Another site make with jekyll" # String, your site title.
+name: "Divi" # String, your site name.
+logo: "http://www.universaal.info/wp-content/uploads/logo.png" # String, logo URL.
+
+boxed_layout:  false #Bool
+top_menu: "top_menu.html" #String: filename.extension
+display_top_menu : true #Bool
+main_sidebar: "main_menu.html" #String: filename.extension
+main_menu_style: "standard" # String: "standard", "centred", "side"
+display_main_menu : true #Bool
+footer: "footer.html" #String: filename.extension
+display_footer : true #Bool
+
+#email: 'contact@ourwebsite.com' # String, your email.
+#phone: '888-443-2342' # String, your phone.
+facebook_url : '#' # String, facebook URL.
+twitter_url : '#' # String, twitter URL.
+google_url : '#' # String, google+ URL.
