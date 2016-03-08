@@ -16,3 +16,14 @@ Pellentesque ornare quis nisi id ultrices. In hac habitasse platea dictumst. Pha
 Proin lobortis maximus lorem. Maecenas sit amet dignissim magna. Integer sodales nibh non mi dignissim, quis egestas leo eleifend. Phasellus egestas, sem sit amet rutrum ultrices, ipsum neque tempus quam, ac posuere nibh nulla eget metus. Cras condimentum efficitur nisi, accumsan tempor odio porta sed. Praesent feugiat rhoncus arcu, at pretium purus blandit a. Suspendisse potenti. Morbi aliquam risus sem, et imperdiet turpis varius sed. Curabitur varius semper ligula sit amet tempus. Nam vel nibh rhoncus, tincidunt nisl eu, posuere nunc. Nulla facilisi. Aliquam rhoncus porttitor lacus. Phasellus imperdiet dui vehicula auctor euismod.
 
 Quisque pharetra, diam sed porta fringilla, tellus risus porta eros, quis lacinia felis orci in augue. Vestibulum varius, libero bibendum rutrum ullamcorper, ante dui elementum urna, ut finibus tortor diam eu tortor. Sed non mauris mauris. Proin a efficitur neque. Curabitur finibus lacus id dui bibendum faucibus. Donec tristique vel quam ut sodales. Morbi tempor volutpat mi vel maximus. Morbi arcu massa, semper id arcu eget, sollicitudin lobortis nibh.
+
+{% highlight ruby linenos %}
+def show
+  puts "Outputting a very lo-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-ong lo-o-o-o-o-o-o-o-o-o-o-o-o-o-o-o-ong line"
+  @widget = Widget(params[:id])
+  respond_to do |format|
+    format.html
+    format.json { render json: @widget }
+  end
+end
+{% endhighlight %}
