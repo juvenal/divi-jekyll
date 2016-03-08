@@ -1,0 +1,66 @@
+
+{% comment %} <!-- Capture _menu_items string --> {% endcomment %}
+{% capture _menu_items %}
+   {% comment %} <!-- Get all pages --> {% endcomment %}
+   {% assign _pages = site.pages %}
+
+   {% comment %} <!-- Sort by URL --> {% endcomment %}
+   {% assign _pages = _pages | sort: "url" %}
+
+   {% comment %} <!-- Foreach array items --> {% endcomment %}
+   {% for node in _pages %}
+   
+      {% comment %} <!-- BREAK if node title is not set --> {% endcomment %}
+      {% unless node.title %}{% continue %}{% endunless %}
+      
+      {% comment %} <!-- Get the node url excluding the included URL --> {% endcomment %}
+      {% assign _url_start = node.url | truncate: include.url.size, "" %}
+      
+      {% comment %} <!-- BREAK if the include URL is eq on this node --> {% endcomment %}
+      {% unless include.url == _url_start %}{% continue %}{% endunless %}
+      
+      {% comment %} <!-- Get the final ends of the node URL --> {% endcomment %}
+      {% assign _url_rest = node.url | remove_first: _url_start %}
+
+      {% comment %} <!-- Get "/" count --> {% endcomment %}
+      {% assign _url_rest_size = _url_rest | split: "/" | size %}
+
+      {% comment %} <!-- BREAK if post --> {% endcomment %}
+      {% assign _childmenu = 0 %}
+      {% assign _have_pagination = node.url | split: "/page-" | size %}
+      {% if _have_pagination == 2 %}
+         {% continue %}
+      {% endif %}
+
+      {% comment %} <!-- Get the last char --> {% endcomment %}
+      {% assign _lastchar = node.url | split: "" | last %}
+
+      {% comment %} <!-- Get the next url to search --> {% endcomment %}
+      {% assign _nexturl = node.url %}
+
+      {% comment %} <!-- Return the classes --> {% endcomment %}
+      {% capture _classes %}
+
+         {% if page.url == node.url %}
+            current-menu-item {{ " " }}
+            current_page_item {{ " " }}
+         {% endif %}
+
+      {% endcapture %}
+
+      {% comment %} <!-- Returns <li> element --> {% endcomment %}
+      {% if node.display_on_footer == true %}
+         <li class="menu-item menu-item-type-post_type menu-item-object-page {{ _classes | strip }}">
+            <a href="{{ site.baseurl }}{{ node.url }}">{{ node.title | escape }}</a>
+         </li>
+      {% endif %}
+
+   {% endfor %}
+{% endcapture %}
+
+{% assign _srip_items = _menu_items | strip %}
+{% unless _srip_items == "" %}
+      <ul id="menu-footer-menu" class="bottom-nav">
+         {{ _srip_items }}
+      </ul>
+{% endunless %}

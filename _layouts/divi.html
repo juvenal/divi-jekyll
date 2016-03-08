@@ -49,6 +49,24 @@ layout: bare
 {% else %}
 	{% assign _menu_style = "standard" %}
 {% endif %}
+
+{% comment %} <!-- _footer_display setter --> {% endcomment %}
+{% if page.display_footer == true %}
+	{% assign _footer_display = page.display_footer %}
+	{% elsif site.display_footer == true %}
+	{% assign _footer_display = site.display_footer %}
+{% else %}
+	{% assign _footer_display = true %}
+{% endif %}
+{% comment %} <!--  _footer_file setter --> {% endcomment %}
+{% if page.footer == true %}
+	{% assign _footer_file = page.footer %}
+	{% elsif site.footer == true %}
+	{% assign _footer_file = site.footer %}
+{% else %}
+	{% assign _footer_file = "footer.html" %}
+{% endif %}
+
 {% comment %} <!--  _page_title setter --> {% endcomment %}
 {% if page.title %}
 	{% assign _page_title = page.title %}
@@ -112,6 +130,14 @@ layout: bare
 			{% if _main_menu_display and _main_menu_file %} {% include {{_main_menu_file}} %} {% endif %}
 		</header>
 		<!-- END Header -->
+		
+		<!-- BEGIN main area -->
+		<div id="et-main-area">
+
+			{% if _footer_display and _footer_file %} {% include {{_footer_file}} %} {% endif %}
+		</div>
+		<!-- END main area
+
 	</div>
 	<!-- END page container -->
 	<!-- Divi js -->
