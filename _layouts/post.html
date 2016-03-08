@@ -1,3 +1,85 @@
 ---
 layout: divi
 ---
+
+<div class="container">
+   <div id="content-area" class="clearfix">
+      <div id="left-area">
+         <article id="post-4730" class="et_pb_post post-4730 post type-post status-publish format-gallery has-post-thumbnail hentry category-photography post_format-post-format-gallery">
+            <div class="et_post_meta_wrapper">
+               <h1 class="entry-title">{{page.title}}</h1>
+               <p class="post-meta"> 
+					{% if page.author %}
+						by <span class="author vcard"><a href="#author-link" title="Posts by {{ page.author }}">{{ page.author }}</a></span>
+                    {% endif %}
+
+					{% if page.author and page.date %}|{% endif %}
+
+					{% if page.date %}
+						<span class="published">{{ page.date | date: '%B %d, %Y' }}</span>
+					{% endif %}
+
+					{% if page.date and page.category %}|{% endif %}
+
+					{% if page.category %}
+						{% for post_cat in page.category %}
+							<a href="#category-link" rel="category tag">{{ post_cat }}</a>
+							{% if forloop.index != forloop.length  %},{% endif %}
+						{% endfor %}
+					{% endif %}
+				</p>
+				{% if page.thumnail_carousel %}
+					<ul class="et_post_gallery clearfix">
+						{% for image in page.thumnail_carousel %}
+						<li class="et_gallery_item">
+							<a href="{{image}}" title="Tea Cup Packaging">
+								<span class="et_portfolio_image">
+									<img width="400" height="284" src="{{image}}" class="attachment-et-pb-portfolio-image size-et-pb-portfolio-image">
+									<span class="et_overlay"></span>
+								</span>
+							</a>
+					   </li>
+					   {% endfor %}
+					</ul>
+				{% elsif page.thumnail_image %}
+					<img src="{{page.thumnail_image}}" alt="Golden Meadow" width="1080" height="675">
+				{% elsif page.thumnail_quote %}
+					<div class="et_quote_content et_pb_text_color_light" style="background-color: #9b61dd;">
+						<blockquote>
+							<p>“{{page.thumnail_quote[0]}}.”<br>
+							<br><em>-{{page.thumnail_quote[1]}}</em>
+							</p>
+						</blockquote>
+					</div>
+				{% elsif page.thumnail_video %}
+      				<div class="et_main_video_container">
+      					<div class="fluid-width-video-wrapper" style="padding-top: 58.3333%;">
+      						{% if page.thumnail_video contains "youtu" %}
+      							{% assign _youtube_id = page.thumnail_video | split: "/" | last %}
+      							<iframe src="https://www.youtube.com/embed/{{_youtube_id}}?feature=oembed&amp;amp;wmode=opaque" frameborder="0" allowfullscreen=""></iframe>
+      							{% endif %}
+      						{% if page.thumnail_video contains "vimeo" %}
+      							{% assign _vimeo_id = page.thumnail_video | split: "/" | last %}
+      							<iframe src="https://player.vimeo.com/video/{{_vimeo_id}}?wmode=opaque" frameborder="0" title="Bat.tutty.ry" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" ></iframe>
+      						{% endif %}
+      					</div>
+      				</div>
+				{% elsif page.thumnail_link %}
+					<!-- Do nothing-->
+                {% endif %}
+
+            </div>
+            <!-- .et_post_meta_wrapper -->
+            <div class="entry-content">
+               <p>
+               	{{ content }}
+               </p>
+            </div>
+            <!-- .entry-content -->
+         </article>
+         <!-- .et_pb_post -->
+      </div>
+      <!-- #left-area -->
+   </div>
+   <!-- #content-area -->
+</div>
