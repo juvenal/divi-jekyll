@@ -39,4 +39,7 @@ display_footer : true #Bool
 #phone: '888-443-2342' # String, your phone.
 facebook_url : '#' # String, facebook URL.
 twitter_url : '#' # String, twitter URL.
+github_url : '#' # String, google+ URL.
+youtube_url : '#' # String, google+ URL.
+linkedin_url : '#' # String, google+ URL.
 google_url : '#' # String, google+ URL.
