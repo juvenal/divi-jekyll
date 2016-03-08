@@ -26,8 +26,7 @@ display_on_main_menu : true
                <div class="et_pb_blog_grid_wrapper">
                   <div class="et_pb_blog_grid clearfix et_pb_module et_pb_bg_layout_light  et_pb_blog_0" data-columns="3">
 
-
-                  {% assign _posts = site.posts %}
+                  {% assign _posts = paginator.posts %}
                   {% for post in _posts %}
 
                      {% capture _loop %}{{ _loop | plus:1 }}{% endcapture %}
@@ -154,6 +153,32 @@ display_on_main_menu : true
 
                   </div>
                   <!-- .et_pb_posts -->
+                  <div class="wp-pagenavi">
+                     <span class="pages" style="float: left;">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+                  
+                  {% if paginator.previous_page %}
+                     {% if paginator.previous_page == 1 %}
+                     <a href="{{site.baseurl}}{{ site.paginate_path | replace: 'page-:num/', '' }}">«</a>
+                     {% else %}
+                     <a class="previouspostslink" rel="prev" href="{{site.baseurl}}{{ site.paginate_path | replace: ':num', paginator.previous_page }}">«</a>
+                     {% endif %}
+                  {% endif %}
+                  
+                  {% for page in (1..paginator.total_pages) %}
+                     {% if page == paginator.page %}
+                        <a >{{ page }}</a>
+                     {% elsif page == 1 %}
+                        <a href="{{site.baseurl}}{{ site.paginate_path | replace: 'page-:num/', '' }}">{{ page }}</a>
+                     {% else %}
+                        <a href="{{site.baseurl}}{{ site.paginate_path | replace: ':num', page }}">{{ page }}</a>
+                     {% endif %}
+                  {% endfor %}
+
+                     {% if paginator.next_page %}
+                     <a class="nextpostslink" rel="next" href="{{site.baseurl}}{{ site.paginate_path | replace: ':num', paginator.next_page }}">»</a>
+                  {% endif %}
+
+                  </div>
                </div>
             </div>
             <!-- .et_pb_column -->
