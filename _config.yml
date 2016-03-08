@@ -87,6 +87,8 @@ display_top_menu : true #Bool
 main_sidebar: "main_menu.html" #String: filename.extension
 main_menu_style: "standard" # String: "standard", "centred", "side"
 display_main_menu : true #Bool
+footer: "footer.html" #String: filename.extension
+display_footer : true #Bool
 
 email: 'contact@ourwebsite.com' # String, your email.
 phone: '888-443-2342' # String, your phone.
