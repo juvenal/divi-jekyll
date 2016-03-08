@@ -14,30 +14,7 @@
 	<!-- #et-footer-nav -->
 	<div id="footer-bottom">
 		<div class="container clearfix">
-			<ul class="et-social-icons">
-				{% if site.facebook_url %}
-					<li class="et-social-icon et-social-facebook">
-						<a href="{{site.facebook_url}}" class="icon">
-							<span>Facebook</span>
-						</a>
-					</li>
-				{% endif %}
-				{% if site.twitter_url %}
-					<li class="et-social-icon et-social-twitter">
-						<a href="{{site.twitter_url}}" class="icon">
-							<span>Twitter</span>
-						</a>
-					</li>
-				{% endif %}
-				
-				{% if site.google_url %}
-					<li class="et-social-icon et-social-google-plus">
-						<a href="{{site.google_url}}" class="icon">
-							<span>Google</span>
-						</a>
-					</li>
-				{% endif %}
-			</ul>
+			{% include social_icons.inc.html %}
 			<p id="footer-info">Designed by <a href="http://www.elegantthemes.com" title="Premium WordPress Themes">Elegant Themes</a> | Powered by <a href="https://jekyllrb.com/">Jekyll</a></p>
 		</div>
 		<!-- .container -->

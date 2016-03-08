@@ -1,0 +1,46 @@
+figure.highlight{
+    margin: 2em 0em;
+}
+
+figure.highlight pre{
+    border-radius: 2px;
+    padding: 10px;
+}
+
+figure.highlight pre code{
+	margin-bottom: 0px;
+	font-family: monospace;
+	font-size: 13px;
+}
+
+figure.highlight table{
+	margin: 0px !important;
+}
+
+td.gutter.gl{
+	vertical-align: top;
+	text-align: left !important;
+    padding: 0px !important;
+    border: none !important;
+}
+
+td.gutter.gl pre{
+	padding: 0px 10px 0px 0px;
+    font-size: 11px;
+    line-height: 17px;
+}
+
+td.code{
+	vertical-align: top;
+	text-align: left !important;
+    padding: 0px !important;
+    border: none !important;
+	width: 100%;
+    border: none;
+}
+td.code pre{
+	padding: 0px;
+    margin: 0px;
+    font-size: 11px;
+    line-height: 17px;
+}
