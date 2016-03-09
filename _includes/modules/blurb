@@ -17,15 +17,15 @@
 {% endif %}
 
 <!--  _icon_style setter -->
-{% assign _icon_style = ' ' %}
+{% assign _icon_style = 'border-radius: 50%;' %}
 {% if include.icon_color %}
-	{% capture _icon_style %}{{_icon_style}} color:"{{include.icon_color}}";{% endcapture %}
+	{% capture _icon_style %}{{_icon_style}} color:{{include.icon_color}};{% endcapture %}
 {% endif %}
 {% if include.icon_background %}
-	{% capture _icon_style %}{{_icon_style}} background-color:"{{include.icon_background}}";{% endcapture %}
+	{% capture _icon_style %}{{_icon_style}} background-color:{{include.icon_background}};{% endcapture %}
 {% endif %}
 {% if include.icon_border_color %}
-	{% capture _icon_style %}{{_icon_style}} border-color:"{{include.icon_border_color}}";{% endcapture %}
+	{% capture _icon_style %}{{_icon_style}} border: 3px solid; border-color:{{include.icon_border_color}};{% endcapture %}
 {% endif %}
 
 <div class="et_pb_blurb et_pb_module et_pb_bg_layout_light {{_icon_class}}">
