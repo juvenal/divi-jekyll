@@ -1,0 +1,66 @@
+---
+title: Hints
+layout: page
+display_on_main_menu : true
+display_on_top_menu : false
+display_footer : false
+---
+
+<div class="container" style="padding-top: 58px;">
+	<div id="content-area" class="clearfix">
+		<div id="left-area">
+			<article id="post-id" class="et_pb_post post-id post type-post status-publish hentry">
+				<div class="et_post_meta_wrapper">
+					<h1 class="entry-title">Hints module</h1>
+				</div>
+				<div class="entry-content">
+					<p>
+					<h3>Default</h3>
+					{% include modules/note.html
+						header="ProTips™ help you get more from Jekyll" 
+						msg="These are tips and tricks that will help you be a Jekyll wizard!"
+					%}
+					</p>
+
+					<p>
+					<h3>Note</h3>
+						{% include modules/note.html
+							type='info'
+							header="Notes are handy pieces of information" 
+							msg="These are for the extra tidbits sometimes necessary to understand Jekyll."
+						%}
+					</p>
+
+					<p>
+					<h3>Warning</h3>
+						{% include modules/note.html
+							type='warning'
+							header="Warnings help you not blow things up" 
+							msg="Be aware of these messages if you wish to avoid certain death."
+						%}
+					</p>
+
+					<p>
+					<h3>Unreleased</h3>
+						{% include modules/note.html
+							type='unreleased'
+							header="You'll see this by a feature that hasn't been released" 
+							msg="Some pieces of this website are for future versions of Jekyll that are not yet released."
+						%}
+					</p>
+
+					<p>
+					<h3>Custom color & Custom font-awesome icon</h3>
+						{% include modules/note.html
+							type='custom'
+							bgcolor='#FB8C00'
+							icon='fa-bolt'
+							header="Custom tip" 
+							msg="Fusce at vulputate tortor, vel semper ligula. Curabitur varius, dolor et eleifend vulputate."
+						%}
+					</p>
+				</div>
+			</article>
+		</div>
+	</div>
+</div>
