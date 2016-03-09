@@ -7,8 +7,8 @@ gems: [jekyll-paginate]
 baseurl: "/divi-jekyll"
 
 paginate: 15
-paginate_path: "/blog/page-:num/"
-paginate_masonry_path: "/blog/masonry/page-:num/"
+paginate_path: "/_blog/page-:num/"
+paginate_masonry_path: "/_blog/masonry/page-:num/"
 
 
 
