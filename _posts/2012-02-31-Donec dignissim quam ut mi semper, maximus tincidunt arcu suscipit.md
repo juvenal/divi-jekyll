@@ -14,7 +14,7 @@ Pellentesque ornare quis nisi id ultrices. In hac habitasse platea dictumst. Pha
 
 Proin lobortis maximus lorem. Maecenas sit amet dignissim magna. Integer sodales nibh non mi dignissim, quis egestas leo eleifend. Phasellus egestas, sem sit amet rutrum ultrices, ipsum neque tempus quam, ac posuere nibh nulla eget metus. Cras condimentum efficitur nisi, accumsan tempor odio porta sed. Praesent feugiat rhoncus arcu, at pretium purus blandit a. Suspendisse potenti. Morbi aliquam risus sem, et imperdiet turpis varius sed. Curabitur varius semper ligula sit amet tempus. Nam vel nibh rhoncus, tincidunt nisl eu, posuere nunc. Nulla facilisi. Aliquam rhoncus porttitor lacus. Phasellus imperdiet dui vehicula auctor euismod.
 
-{% include modules/note.html
+{% include modules/note
 	type='info'
 	header="Notes are handy pieces of information" 
 	msg="These are for the extra tidbits sometimes necessary to understand Jekyll."
