@@ -2,16 +2,10 @@
 ########################
 # jekyll configuration #
 ########################
-gems: [jekyll-paginate]
-
-detach:  false
-port:    4000
-host:    127.0.0.1
 baseurl: "/divi-jekyll"
 
 paginate: 15
 paginate_path: "/blog/page-:num/"
-paginate_masonry_path: "/blog/masonry/page-:num/"
 
 ############
 # Defaults #
