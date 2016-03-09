@@ -9,7 +9,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut vehicula arc
 Fusce at vulputate tortor, vel semper ligula. Curabitur varius, dolor et eleifend vulputate, metus erat bibendum mauris, eu semper risus magna eget diam. Aenean cursus sapien vel magna pharetra tempus. Nunc et ex sapien. Nam elit libero, condimentum vitae eleifend a, mattis ut libero. Vivamus interdum blandit augue id blandit. Quisque scelerisque risus tellus, sit amet mollis ante mollis quis. Phasellus tortor lectus, consectetur sed dapibus vel, finibus ac mauris. Donec in viverra lacus. Curabitur sit amet justo id lacus suscipit tincidunt.
 
 
-{% include modules/note.html
+{% include modules/note
 	type='unreleased'
 	header="You'll see this by a feature that hasn't been released" 
 	msg="Some pieces of this website are for future versions of Jekyll that are not yet released."

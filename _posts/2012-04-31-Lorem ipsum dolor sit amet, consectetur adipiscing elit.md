@@ -11,7 +11,7 @@ Fusce at vulputate tortor, vel semper ligula. Curabitur varius, dolor et eleifen
 Pellentesque ornare quis nisi id ultrices. In hac habitasse platea dictumst. Phasellus laoreet, urna ut dapibus eleifend, nisi nisl tristique purus, vitae pellentesque elit nunc non orci. Quisque eget libero at sem malesuada cursus vitae ut magna. Nunc luctus ac massa nec finibus. Duis ac condimentum arcu. Morbi nisi ligula, imperdiet non orci sed, posuere efficitur nisi. In consequat suscipit odio ut congue. Proin tempor et metus ut ultrices. Ut ultricies nisl in magna volutpat gravida. Aenean venenatis ante at tortor tincidunt, et maximus libero tincidunt. Phasellus sed facilisis elit, non mattis felis. Sed nec egestas justo.
 
 
-{% include modules/note.html
+{% include modules/note
 	type='info'
 	header="Notes are handy pieces of information" 
 	msg="These are for the extra tidbits sometimes necessary to understand Jekyll."
