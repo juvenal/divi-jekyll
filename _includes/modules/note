@@ -1,0 +1,42 @@
+
+{% comment %} <!--  _bgcolor setter --> {% endcomment %}
+{% if include.bgcolor %}
+	{% assign _bgcolor = include.bgcolor %}
+{% else %}
+	{% if include.type == "warning" %}
+		{% assign _bgcolor = "#e53935" %}
+	{% elsif  include.type == "unreleased" %}
+		{% assign _bgcolor = "#FFB300" %}
+	{% elsif  include.type == "info" %}
+		{% assign _bgcolor = "#039BE5" %}
+	{% else %}
+		{% assign _bgcolor = "#7CB342" %}
+	{% endif %}
+{% endif %}
+
+{% comment %} <!--  _icon setter --> {% endcomment %}
+{% if include.icon %}
+	{% assign _icon = include.icon %}
+{% else %}
+	{% if include.type == "warning" %}
+		{% assign _icon = "fa-exclamation-circle" %}
+	{% elsif  include.type == "unreleased" %}
+		{% assign _icon = "fa-beer" %}
+	{% elsif  include.type == "info" %}
+		{% assign _icon = "fa-info-circle" %}
+	{% else %}
+		{% assign _icon = "fa-star" %}
+	{% endif %}
+{% endif %}
+
+{% comment %} <!--  _classes setter --> {% endcomment %}
+{% assign _classes = "note "+include.type %}
+
+<div class="et_pb_column et_pb_column_4_4 et_pb_column_inner  et_pb_column_inner_0">
+	<div class="et_pb_promo et_pb_module et_pb_bg_layout_dark et_pb_text_align_center  et_pb_cta_0 {{_classes}}" style="background-color: {{_bgcolor}}; padding: 5px; border: 5px double white;">
+		<div class="et_pb_promo_description">
+			<h2> <i class="fa {{_icon}}"></i> {{include.header}}</h2>
+			{{include.msg}}
+		</div>
+	</div>
+</div>
