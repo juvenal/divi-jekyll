@@ -1,0 +1,43 @@
+
+
+{% comment %} <!--  _icon setter --> {% endcomment %}
+{% assign _icon = ' ' %}
+{% if include.icon %}
+	{% assign _icon = include.icon %}
+{% else %}
+	{% assign _icon = "&#xe089;" %}
+{% endif %}
+
+<!--  _icon_align setter --> 
+{% assign _icon_class = ' ' %}
+{% if include.align == "left" %}
+	{% capture _icon_class %}{{_icon_class}}et_pb_text_align_left et_pb_blurb_position_left{% endcapture %}
+{% else %}
+	{% capture _icon_class %}{{_icon_class}}et_pb_text_align_center et_pb_blurb_position_top{% endcapture %}
+{% endif %}
+
+<!--  _icon_style setter -->
+{% assign _icon_style = ' ' %}
+{% if include.icon_color %}
+	{% capture _icon_style %}{{_icon_style}} color:"{{include.icon_color}}";{% endcapture %}
+{% endif %}
+{% if include.icon_background %}
+	{% capture _icon_style %}{{_icon_style}} background-color:"{{include.icon_background}}";{% endcapture %}
+{% endif %}
+{% if include.icon_border_color %}
+	{% capture _icon_style %}{{_icon_style}} border-color:"{{include.icon_border_color}}";{% endcapture %}
+{% endif %}
+
+<div class="et_pb_blurb et_pb_module et_pb_bg_layout_light {{_icon_class}}">
+	<div class="et_pb_blurb_content">
+		<div class="et_pb_main_blurb_image">
+			<a href="">
+				<span class="et-pb-icon et-waypoint et_pb_animation_top et-animated" style="{{_icon_style}}">{{_icon}}</span>
+			</a>
+		</div>
+		<div class="et_pb_blurb_container">
+			<h4><a href="{{include.url}}">{{include.header}}</a></h4>
+			<p>{{include.msg}}</p>
+		</div>
+	</div>
+</div>
