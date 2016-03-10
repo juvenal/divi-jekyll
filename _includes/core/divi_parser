@@ -26,8 +26,16 @@
 		}}
 	{% endcapture %}
 
+	{% comment %} <!-- parse sections --> {% endcomment %}
+	{% capture _html_r_c_s %}
+		{{ include.html 
+			| replace: '<!--endsection-->', '</div>' 
+			| replace: '<!--section', '<div class="et_pb_section et_section_regular" ' 
+		}}
+	{% endcapture %}
+
 	{% comment %} <!-- close open tags --> {% endcomment %}
-	{{ _html_r_c | replace: '#-->', '>' }}
+	{{ _html_r_c_s | replace: '#-->', '>' }}
 
 {% endcapture %}
 
