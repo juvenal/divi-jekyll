@@ -1,0 +1,20 @@
+
+{% comment %} <!--  _classes setter --> {% endcomment %}
+{% assign _classes = ""%}
+{% if include.dark == true %}
+	{% capture _classes %}{{_classes}} et_pb_bg_layout_dark {% endcapture %}
+{% else %}
+	{% capture _classes %}{{_classes}} et_pb_bg_layout_light {% endcapture %}
+{% endif %}
+
+{% if include.bar-color %}
+	{% capture _bar_color %} data-bar-bg-color="{{include.bar-color}}" {% endcapture %}
+{% endif %}
+
+
+
+<div class="et_pb_circle_counter container-width-change-notify et_pb_module {{_classes}}" data-number-value="{{include.value}}" {{_bar_color}} style="{{include.style | replace:'"',"'"}}">
+	<div class="percent"><p style="visibility: visible;"><span class="percent-value">{{include.value}}</span>%</p></div>
+	<h3>{{include.header}}</h3>
+	<canvas height="225" width="225"></canvas>
+</div>                                         
