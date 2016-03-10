@@ -1,0 +1,58 @@
+---
+title: Circle counters
+layout: page
+display_on_main_menu : true
+display_on_top_menu : false
+display_footer : false
+---
+
+
+<!--section #-->
+	<!--row #-->
+		<!--col-4-4 style="padding-bottom: 20px;" #-->
+		<h1>Circle counters</h1>
+		<!--endcol-->
+	
+		<!--col-1-3 #-->
+			{% include modules/circle_counter
+				dark = false
+				value= 38
+				bar-color="#F4511E"
+				header="Circle Counter Title"
+			%}
+		<!--endcol-->
+
+		<!--col-1-3 #-->
+			{% include modules/circle_counter
+				dark = false
+				value= 75
+				header="Circle Counter Title"
+			%}
+		<!--endcol-->
+
+		<!--col-1-3 #-->
+			{% include modules/circle_counter
+				dark = false
+				value= 25
+				bar-color="#43A047"
+				header="Circle Counter Title"
+			%}
+		<!--endcol-->
+
+	<!--endrow-->
+
+	<!--row #-->
+		<!--col-4-4 #-->
+{% highlight html %}{% raw %}
+{% include modules/circle_counter
+	dark = false
+	value= 25
+	bar-color="#43A047"
+	header="Circle Counter Title"
+	style="color: #212121"
+%}
+{% endraw %}{% endhighlight %}
+		<!--endcol-->
+	<!--endrow-->
+
+<!--endsection-->
