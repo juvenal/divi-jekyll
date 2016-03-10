@@ -1,0 +1,82 @@
+---
+title: Grid system
+layout: page
+display_on_main_menu : true
+display_on_top_menu : false
+display_footer : false
+divi_parser: false
+---
+
+<div class="et_pb_section et_section_regular">
+	<div id="row-01" class="et_pb_row">
+		<div class="et_pb_column et_pb_column_4_4">
+			<h1>Introduction</h1>
+			<p>
+				Grid systems are used for creating page layouts through a series of rows and columns that house your content. Here's how the Divi grid system works:
+				<ul>
+					<li>Use rows to create horizontal groups of columns.</li>
+					<li>Content should be placed within columns, and only columns may be immediate children of rows.</li>
+					<li>Predefined grid classes like
+						<code>.et_pb_row</code> and
+						<code>et_pb_column_1_4</code>, <code>.et_pb_column_1_3</code>, <code>.et_pb_column_1_2</code>, <code>.et_pb_column_2_3, et_pb_column_3_4</code>, <code>.et_pb_column_4_4</code> are available for quickly making grid layouts.
+					</li>
+					<li>Columns create gutters (gaps between column content) via
+						<code>padding</code>. That padding is offset in rows for the first and last column via negative margin on
+						<code>.et_pb_row</code>s.
+					</li>
+					<li>The negative margin is why the examples below are outdented. It's so that content within grid columns is lined up with non-grid content.</li>
+				</ul>
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="et_pb_section et_section_regular">
+	<div id="row-01" class="et_pb_row">
+		<div class="et_pb_column et_pb_column_4_4">
+			<h1>Custom tags</h1>
+{% highlight html %}{% raw %}
+<!--row id="row-01" style="backgorund-color:#FFF" #-->
+
+	<!--col-1-4 #-->
+	1/4 of the row
+	<!--endcol-->
+
+	<!--col-2-4 #-->
+	2/4 of the row
+	<!--endcol-->
+
+	<!--col-1-4 #-->
+	1/4 of the row
+	<!--endcol-->
+
+<!--endrow-->
+{% endraw %}{% endhighlight %}
+		</div>
+	</div>
+</div>
+
+<div class="et_pb_section et_section_regular">
+	<div id="row-01" class="et_pb_row">
+		<div class="et_pb_column et_pb_column_4_4">
+			<h1>Html tags</h1>
+{% highlight html %}{% raw %}
+<div id="row-01" class="et_pb_row" style="backgorund-color:#FFF">
+	
+	<div class="et_pb_column et_pb_column_1_4">
+		1/4 of the row
+	</div>
+	
+	<div class="et_pb_column et_pb_column_1_2">
+		2/4 of the row
+	</div>
+	
+	<div class="et_pb_column et_pb_column_1_4">
+		1/4 of the row
+	</div>
+
+</div>
+{% endraw %}{% endhighlight %}
+		</div>
+	</div>
+</div>

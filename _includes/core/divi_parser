@@ -1,0 +1,34 @@
+{% capture _output %}
+	{% comment %} <!-- parse rows --> {% endcomment %}
+	{% capture _html_r %}
+		{{ include.html 
+			| replace: '<!--endrow-->', '</div>' 
+			| replace: '<!--row', '<div class="et_pb_row" ' 
+		}}
+	{% endcapture %}
+
+	{% comment %} <!-- parse cols --> {% endcomment %}
+	{% capture _html_r_c %}
+		{{ _html_r 
+			| replace: '<!--endcol-->', '</div>' 
+			| replace: '<!--col-4-4', '<div class="et_pb_column et_pb_column_4_4" '
+			| replace: '<!--col-1-1', '<div class="et_pb_column et_pb_column_4_4" '
+			| replace: '<!--col-2-2', '<div class="et_pb_column et_pb_column_4_4" '
+			| replace: '<!--col-3-3', '<div class="et_pb_column et_pb_column_4_4" '
+
+			| replace: '<!--col-1-2', '<div class="et_pb_column et_pb_column_1_2" '
+			| replace: '<!--col-2-4', '<div class="et_pb_column et_pb_column_1_2" '
+
+			| replace: '<!--col-1-4', '<div class="et_pb_column et_pb_column_1_4" '
+			| replace: '<!--col-3-4', '<div class="et_pb_column et_pb_column_3_4" '
+			| replace: '<!--col-1-3', '<div class="et_pb_column et_pb_column_1_3" '
+			| replace: '<!--col-2-3', '<div class="et_pb_column et_pb_column_2_3" '
+		}}
+	{% endcapture %}
+
+	{% comment %} <!-- close open tags --> {% endcomment %}
+	{{ _html_r_c | replace: '#-->', '>' }}
+
+{% endcapture %}
+
+{{_output}}
