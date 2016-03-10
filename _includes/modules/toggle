@@ -1,0 +1,17 @@
+
+{% comment %} <!--  _classes setter --> {% endcomment %}
+{% assign _classes = ""%}
+{% if include.open == true %}
+	{% capture _classes %}{{_classes}} et_pb_toggle_open {% endcapture %}
+{% else %}
+	{% capture _classes %}{{_classes}} et_pb_toggle_close {% endcapture %}
+{% endif %}
+
+<div class="et_pb_module et_pb_toggle  et_pb_toggle_0 et_pb_toggle_item{{_classes}}" style="{{include.style | replace:'"',"'"}}">
+	<h5 class="et_pb_toggle_title">{{include.header}}</h5>
+	<div class="et_pb_toggle_content clearfix">
+		<p>
+			{{include.msg}}
+		</p>
+	</div>
+</div>

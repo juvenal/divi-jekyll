@@ -1,0 +1,57 @@
+---
+title: Toggles
+layout: page
+display_on_main_menu : true
+display_on_top_menu : false
+display_footer : false
+---
+
+
+<!--section #-->
+	<!--row #-->
+		<!--col-4-4 style="padding-bottom: 20px;" #-->
+		<h1>Toggles</h1>
+		<!--endcol-->
+	
+		<!--col-4-4 #-->
+			{% include modules/toggle
+				open= true
+				header="The Toggles Module"
+				msg="Toggles are a great way to consolidate information and improve user experience on your page."
+			%}
+		<!--endcol-->
+	<!--endrow-->
+
+	<!--row #-->
+		<!--col-2-4 #-->
+			{% include modules/toggle
+				open= false
+				header="The Toggles Module"
+				msg="Using Divi, you can create any number of toggles that will look great inside any sized column."
+			%}
+		<!--endcol-->
+
+		<!--col-2-4 #-->
+			{% include modules/toggle
+				open= false
+				header="The Toggles Module"
+				msg="Using Divi, you can create any number of toggles that will look great inside any sized column."
+			%}
+		<!--endcol-->
+
+	<!--endrow-->
+
+	<!--row #-->
+		<!--col-4-4 #-->
+{% highlight html %}{% raw %}
+{% include modules/toggle
+	open= true
+	style="color:#333;"
+	header="The Toggles Module"
+	msg="Toggles are a great way to consolidate information and improve user experience on your page."
+%}
+{% endraw %}{% endhighlight %}
+		<!--endcol-->
+	<!--endrow-->
+
+<!--endsection-->
